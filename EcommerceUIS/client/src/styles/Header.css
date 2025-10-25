@@ -320,7 +320,6 @@ html, body {
 /* 4) Keep the right-side icons from pushing layout wider */
 .nav-icons {
   min-width: 0;
-  overflow: hidden;  /* prevents tiny overflow from absolute badges */
 }
 .nav-icons .icon-link {
   white-space: nowrap;

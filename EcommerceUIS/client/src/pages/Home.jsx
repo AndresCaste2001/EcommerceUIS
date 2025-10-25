@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div style={{padding:20}}>Inicio — Welcome to the home page.</div>
+  return <div > Holamundo a — Welcome to the home page.</div>
 }

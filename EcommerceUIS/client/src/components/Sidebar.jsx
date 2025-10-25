@@ -5,11 +5,6 @@ export default function Sidebar() {
   return (
     <aside className="sidebar-sticky">
       <div className="sidebar-card">
-        <div className="card-header">
-          <span>Filtros</span>
-          <small className="category-count">3</small>
-        </div>
-
         <div className="card-section sidebar-search">
           <input type="search" placeholder="Buscar producto..." aria-label="Buscar productos" />
           <button className="btn">OK</button>

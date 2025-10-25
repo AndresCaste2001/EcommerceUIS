@@ -1,11 +1,14 @@
-import '../styles/Header.css';
+import React, { useState } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/Header.css';
 import { NavLink } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext.jsx';
 
 function Header() {
   const { count } = useCart();
+  const [open, setOpen] = useState(false);
+
   return (
     <header>
       <div className='d-flex justify-content-between align-items-center'>
@@ -47,10 +50,10 @@ function Header() {
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Universidad_Industrial_de_Santander_logo.svg/2560px-Universidad_Industrial_de_Santander_logo.svg.png" alt="Logo UIS" />
         </div>
 
-        <nav className="col-6 d-flex justify-content-center">
+        <nav className="col-6 d-none d-md-flex justify-content-center">
           <ul className='d-flex gap-4 mb-0'>
              <li><NavLink to="/" className='nav-link'>Inicio</NavLink></li>
-            <li><NavLink to="/nosotros" className='nav-link'>Nostros</NavLink></li>
+            <li><NavLink to="/nosotros" className='nav-link'>Nosotros</NavLink></li>
             <li><NavLink to="/tienda" className='nav-link'>Tienda</NavLink></li>
             <li><NavLink to="/contacto" className='nav-link'>Contacto</NavLink></li>
           </ul>
@@ -65,17 +68,53 @@ function Header() {
               </button>
             </div>
 
-            <div className="nav-icons d-flex gap-3">
+            <div className="nav-icons d-none d-md-flex gap-3">
               <a href="#" className="icon-link position-relative" aria-label="Carrito de compras">
                 <i className="fas fa-shopping-cart"></i>
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">{count}</span>
               </a>
               <a href="#" className="icon-link position-relative" aria-label="Perfil de usuario">
                 <i className="fas fa-user"></i>
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">2</span>
               </a>
             </div>
           </div>
+        </div>
+      {/* Mobile hamburger */}
+        <button
+          className={`mobile-toggle d-md-none ${open ? 'is-open' : ''}`}
+          aria-controls="mobile-menu"
+          aria-expanded={open}
+          aria-label="Abrir menú"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span className="hamburger" />
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <div id="mobile-menu" className={`mobile-menu d-md-none ${open ? 'open' : ''}`} role="dialog" aria-modal="true">
+        <div className="mobile-menu-inner">
+          <ul className="mobile-nav-list">
+            <li><NavLink onClick={() => setOpen(false)} to="/" className="mobile-nav-link">Inicio</NavLink></li>
+            <li><NavLink onClick={() => setOpen(false)} to="/nosotros" className="mobile-nav-link">Nosotros</NavLink></li>
+            <li><NavLink onClick={() => setOpen(false)} to="/tienda" className="mobile-nav-link">Tienda</NavLink></li>
+            <li><NavLink onClick={() => setOpen(false)} to="/contacto" className="mobile-nav-link">Contacto</NavLink></li>
+          </ul>
+
+          <div className="mobile-actions">
+            <NavLink onClick={() => setOpen(false)} to="/cart" className="mobile-action">
+              <i className="fas fa-shopping-cart"></i>
+              <span>Carrito</span>
+              <span className="badge-counter ms-auto">{count}</span>
+            </NavLink>
+
+            <NavLink onClick={() => setOpen(false)} to="/login" className="mobile-action">
+              <i className="fas fa-user"></i>
+              <span>Iniciar sesión</span>
+            </NavLink>
+          </div>
+
+          <button className="mobile-close" onClick={() => setOpen(false)} aria-label="Cerrar menú">Cerrar</button>
         </div>
       </div>
     </header>

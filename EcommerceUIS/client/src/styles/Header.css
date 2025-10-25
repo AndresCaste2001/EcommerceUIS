@@ -13,12 +13,12 @@
   --color-white: #ffffff;
   --color-light-gray: rgba(255, 255, 255, 0.1);
   --header-padding: 1rem 2rem;
+  --accent: #31894b;
 }
 
 /* === Header Styles === */
 header {
   width: 100%;
-  overflow-x: hidden;
   background-color: var(--color-primary);
 }
 
@@ -27,13 +27,11 @@ header > div:first-child {
   padding: var(--header-padding);
   background-color: var(--color-primary);
 }
-
 header > div:first-child a {
   color: var(--color-white);
   font-size: 0.9rem;
   text-decoration: none;
 }
-
 header > div:first-child a:hover {
   color: var(--color-secondary);
 }
@@ -44,58 +42,45 @@ header > div:first-child a:hover {
   background-color: var(--color-dark);
   padding: var(--header-padding);
   margin: 0;
+  z-index: 1;
 }
-
 .headerLogo img {
-  width: 180px;
+  max-width: 40%;
   height: auto;
   margin: 0 auto;
 }
-
-.headerLogo > .d-flex {
-  width: 100%;
-}
+.headerLogo > .d-flex { width: 100%; }
 
 /* Column Widths */
-.headerLogo .col-3 {
-  width: 25%;
-}
+.headerLogo .col-3 { width: 25%; }
+.headerLogo .col-6 { width: 50%; }
 
-.headerLogo .col-6 {
-  width: 50%;
-}
-
-/* Navigation Links */
+/* Navigation Links (desktop) */
 .nav-link {
-  color: var(--color-white) !important;
-  font-size: 1.1rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
+  color: #e0e0e0;
   text-decoration: none;
+  font-weight: 500;
+  padding: .25rem .5rem;
 }
-
 .nav-link:hover {
   color: var(--color-secondary) !important;
   transform: translateY(-2px);
 }
+.nav-link.active { color: var(--accent); }
 
 /* Search Box */
 .search-box {
   position: relative;
   width: 250px;
 }
-
 .search-box input {
   background-color: var(--color-light-gray);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--color-white);
 }
-
 .search-box .btn {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 0; top: 0;
   height: 100%;
   background: none;
   border: none;
@@ -104,69 +89,207 @@ header > div:first-child a:hover {
 
 /* Icons */
 .icon-link {
-  color: var(--color-white);
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
+  color: #e6eef8;
+  font-size: 1.05rem;
   position: relative;
   text-decoration: none;
 }
-
-.icon-link:hover {
-  color: var(--color-secondary);
-}
-
+.icon-link:hover { color: var(--color-secondary); }
 .badge {
   font-size: 0.7rem;
   background-color: var(--color-secondary) !important;
   color: var(--color-white) !important;
 }
-
-/* List Styles */
-ul, ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.badge-counter {
+  background: var(--accent);
+  color: white;
+  font-size: .7rem;
+  padding: .12rem .4rem;
+  border-radius: 999px;
 }
 
-/* Responsive Design */
+/* === Mobile toggle (hamburger) === */
+.mobile-toggle {
+  flex: 0 0 auto;
+  margin-right: auto; 
+  background: transparent;
+  border: none;
+  width: 44px; height: 44px;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  cursor: pointer;
+
+}
+.mobile-toggle .hamburger,
+.mobile-toggle .hamburger::before,
+.mobile-toggle .hamburger::after {
+  content: "";
+  display: block;
+  width: 22px; height: 2px;
+  background: #e6eef8;
+  border-radius: 2px;
+  transition: transform .18s ease, opacity .18s ease, background .18s ease;
+}
+.mobile-toggle .hamburger::before { transform: translateY(-7px); }
+.mobile-toggle .hamburger::after  { transform: translateY(7px); }
+.mobile-toggle.is-open .hamburger { background: transparent; }
+.mobile-toggle.is-open .hamburger::before { transform: rotate(45deg); }
+.mobile-toggle.is-open .hamburger::after  { transform: rotate(-45deg); }
+
+/* === Mobile menu DROPDOWN EN FLUJO === */
+/* Nota: este bloque vive dentro del <header>, abajo de .headerLogo, y empuja el resto del layout */
+.mobile-menu {
+  /* En flujo normal: sin position absolute/fixed */
+  width: 100%;
+  max-width: 100%;
+  background: linear-gradient(180deg, rgb(18, 18, 18), rgba(6,8,12,1));
+  border-top: 1px solid rgba(255,255,255,0.06);
+
+  /* Animación de colapso/expansión */
+  overflow: hidden;
+  max-height: 0;          /* cerrado */
+  opacity: 0;
+  transform-origin: top;
+  transition:
+    max-height .35s ease,
+    opacity .22s ease;
+
+  /* Evitar foco/clicks cuando está cerrado */
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Abierto: expande y empuja el contenido hacia abajo */
+.mobile-menu.open {
+  max-height: 80dvh;      /* ajusta si quieres más/menos alto */
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Contenido interno */
+.mobile-menu-inner {
+  padding: 12px 14px;     /* no animamos padding para evitar saltos */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Lista de navegación móvil */
+.mobile-nav-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.mobile-nav-link {
+  color: #e6eef8;
+  text-decoration: none;
+  font-size: 1.05rem;
+  padding: 12px 10px;
+  border-radius: 10px;
+  display: block;
+}
+.mobile-nav-link:hover { background: rgba(255,255,255,0.06); }
+.mobile-nav-link.active {
+  background: rgba(255,255,255,0.08);
+  color: var(--accent);
+}
+
+/* Acciones (carrito / login) */
+.mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+.mobile-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 10px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  color: #e6eef8;
+  text-decoration: none;
+  font-weight: 500;
+}
+.mobile-action:hover { background: rgba(255,255,255,0.08); }
+.mobile-action .badge-counter {
+  margin-left: auto;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+}
+
+/* Botón cerrar (opcional) */
+.mobile-close {
+  align-self: flex-start;
+  margin-top: 4px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #e6eef8;
+  padding: .5rem .75rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* === Basic header layout === */
+.site-header {
+  background: var(--card-bg, #0b1220);
+  color: var(--card-text, #e6eef8);
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.header-inner { padding: .6rem 1rem; }
+
+/* Logo */
+.logo img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+/* Desktop nav */
+.desktop-nav .nav-list { align-items: center; }
+
+/* === Responsive Design === */
 @media (max-width: 992px) {
-  .search-box {
-    width: 100%;
-  }
-  
-  .headerLogo {
-    padding: 1rem;
-  }
-  
-  .headerLogo img {
-    width: 140px;
-  }
-  
-  .nav-link {
-    font-size: 1rem;
-    padding: 0.3rem 0.7rem;
-  }
+  .search-box { width: 100%; }
+  .headerLogo { padding: 1rem; }
+  .headerLogo img { width: 140px; }
+  .nav-link { font-size: 1rem; padding: 0.3rem 0.7rem; }
 }
 
 @media (max-width: 768px) {
-  header > div:first-child {
-    padding: 0.5rem 1rem;
-  }
-  
+  header > div:first-child { padding: 0.5rem 1rem; }
+
+  /* ocultar nav de escritorio en móvil */
+  .headerLogo nav { display: none; }
+
+  .search-box { display: none; }
   .headerLogo .col-6 {
-    display: none;
+    display: flex;
+    justify-content: center;
   }
-  
-  .headerLogo .col-3 {
-    width: 50%;
-  }
-  
-  :root {
-    --header-padding: 1rem;
-  }
+  .headerLogo .col-3 { width: 50%; }
+
+  :root { --header-padding: 1rem; }
+
+  /* aseguramos que el dropdown exista en móvil */
+  .mobile-menu { display: block; }
 }
 
-/* Accessibility */
+/* En escritorio, desactivar totalmente el contenedor móvil */
+@media (min-width: 768px) {
+  .mobile-menu { display: none !important; }
+}
+
+/* Accesibilidad / reduce motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -175,3 +298,31 @@ ul, ol {
     scroll-behavior: auto !important;
   }
 }
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+.headerLogo .d-flex {
+  min-width: 0;          /* allow shrinking */
+  flex-wrap: nowrap;     /* keep items on one line */
+}
+.headerLogo .d-flex > * {
+  min-width: 0;          /* children can shrink */
+}
+@media (max-width: 768px) {
+  .headerLogo .col-3 {
+    flex: 1 1 50%;
+    width: 50%;
+  }
+  .headerLogo .col-6 { display: none; } /* already hidden, just ensuring */
+}
+
+/* 4) Keep the right-side icons from pushing layout wider */
+.nav-icons {
+  min-width: 0;
+  overflow: hidden;  /* prevents tiny overflow from absolute badges */
+}
+.nav-icons .icon-link {
+  white-space: nowrap;
+}
+

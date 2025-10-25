@@ -1,6 +1,7 @@
-import './Header.css';
+import '../styles/Header.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
   return (
@@ -46,10 +47,10 @@ function Header() {
 
         <nav className="col-6 d-flex justify-content-center">
           <ul className='d-flex gap-4 mb-0'>
-            <li><a href="#" className='nav-link'>Inicio</a></li>
-            <li><a href="#" className='nav-link'>Nosotros</a></li>
-            <li><a href="#" className='nav-link'>Tienda</a></li>
-            <li><a href="#" className='nav-link'>Contacto</a></li>
+             <li><NavLink to="/" className='nav-link'>Home</NavLink></li>
+            <li><NavLink to="/nosotros" className='nav-link'>About</NavLink></li>
+            <li><NavLink to="/tienda" className='nav-link'>Store</NavLink></li>
+            <li><NavLink to="/contacto" className='nav-link'>Contact</NavLink></li>
           </ul>
         </nav>
 

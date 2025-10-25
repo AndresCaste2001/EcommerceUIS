@@ -2,8 +2,10 @@ import '../styles/Header.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavLink } from 'react-router-dom';
+import { useCart } from '../contexts/CartContext.jsx';
 
 function Header() {
+  const { count } = useCart();
   return (
     <header>
       <div className='d-flex justify-content-between align-items-center'>
@@ -17,7 +19,7 @@ function Header() {
             <li>
                 <a href="tel:3183845641">
                     <i className="fa fa-phone mx-2"></i>
-                    318 384 5641
+                    3112765058
                 </a>
             </li>
         </ul>
@@ -47,10 +49,10 @@ function Header() {
 
         <nav className="col-6 d-flex justify-content-center">
           <ul className='d-flex gap-4 mb-0'>
-             <li><NavLink to="/" className='nav-link'>Home</NavLink></li>
-            <li><NavLink to="/nosotros" className='nav-link'>About</NavLink></li>
-            <li><NavLink to="/tienda" className='nav-link'>Store</NavLink></li>
-            <li><NavLink to="/contacto" className='nav-link'>Contact</NavLink></li>
+             <li><NavLink to="/" className='nav-link'>Inicio</NavLink></li>
+            <li><NavLink to="/nosotros" className='nav-link'>Nostros</NavLink></li>
+            <li><NavLink to="/tienda" className='nav-link'>Tienda</NavLink></li>
+            <li><NavLink to="/contacto" className='nav-link'>Contacto</NavLink></li>
           </ul>
         </nav>
 
@@ -66,7 +68,7 @@ function Header() {
             <div className="nav-icons d-flex gap-3">
               <a href="#" className="icon-link position-relative" aria-label="Carrito de compras">
                 <i className="fas fa-shopping-cart"></i>
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">3</span>
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">{count}</span>
               </a>
               <a href="#" className="icon-link position-relative" aria-label="Perfil de usuario">
                 <i className="fas fa-user"></i>

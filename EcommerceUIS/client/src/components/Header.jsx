@@ -47,7 +47,9 @@ function Header() {
       
       <div className='container-fluid d-flex justify-content-between align-items-center headerLogo'>
         <div className="col-3">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Universidad_Industrial_de_Santander_logo.svg/2560px-Universidad_Industrial_de_Santander_logo.svg.png" alt="Logo UIS" />
+            <a href="https://estudiantes.uis.edu.co/" className="logo-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Universidad_Industrial_de_Santander_logo.svg/2560px-Universidad_Industrial_de_Santander_logo.svg.png" alt="Logo UIS" />
+            </a>
         </div>
 
         <nav className="col-6 d-none d-md-flex justify-content-center">

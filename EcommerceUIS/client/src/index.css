@@ -25,7 +25,10 @@ body {
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
 }
-
+#root {
+  min-height: 100vh;
+  background-color: rgb(45, 45, 45);
+}
 /* 5. Imágenes y medios responsivos */
 img, picture, video, canvas, svg {
   display: block;

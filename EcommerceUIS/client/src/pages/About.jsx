@@ -33,7 +33,7 @@ const About = () => {
       </section>
 
 {/* Services Section */}
-<section className="py-5" style={{ backgroundColor: "#343a40", color: "white" }}>
+<section className="py-5 px-5" style={{ backgroundColor: "#16171c", color: "white"}}>
   <div className="row text-center pt-5 pb-3">
     <div className="col-lg-6 m-auto">
       <h1 className="h1">Nuestros Servicios</h1>
@@ -80,7 +80,7 @@ const About = () => {
 </section>
 
 {/* Brands Section */}
-<section className="py-5" style={{ backgroundColor: "#495057", color: "white" }}>
+<section className="py-5" style={{ backgroundColor: "#16171c", color: "white" }}>
   <div className="container my-4">
     <div className="row text-center py-3">
       <div className="col-lg-6 m-auto">

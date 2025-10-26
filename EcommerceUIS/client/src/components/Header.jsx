@@ -28,17 +28,17 @@ function Header() {
         </ul>
         <ul className="list-unstyled d-flex gap-3 mb-0">
             <li>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <a href="https://x.com/uis/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                     <i className="fab fa-twitter"></i>
                 </a>
             </li>
             <li>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <a href="https://www.facebook.com/UISColombia/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                     <i className="fab fa-facebook-f"></i>
                 </a>
             </li>
             <li>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a href="https://www.instagram.com/uis/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <i className="fab fa-instagram"></i>
                 </a>
             </li>

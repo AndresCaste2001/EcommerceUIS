@@ -13,11 +13,27 @@
   --container: 1200px;
 }
 
+/* Make sure the home component fills available space */
+.home {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* Make sure each section fills width */
+.home-block {
+  width: 100%;
+}
+
 .home { background: var(--bg); color: var(--text); }
 .container { max-width: var(--container); margin: 0 auto; padding: 0 1rem; }
 
 .home-block { margin: 28px 0 48px; }
-.section-head { margin-bottom: 20px; }
+.section-head {
+    margin-bottom: 20px;
+    border-radius: 15px;
+    padding: 20px;
+}
 .section-head.center { text-align: center; }
 .section-head h2 { margin: 0 0 6px; font-weight: 700; }
 .muted { color: var(--muted); }
@@ -62,11 +78,12 @@ a { color: inherit; text-decoration: none; }
 /* H2 con “píldora” */
 .section-head.pill h2{
   display: inline-block;
-  padding: 10px 18px;
-  background: var(--accent);
-  color: #0c130f;
+  color: #ffffff;
   border-radius: 10px;
   margin: 0 auto 8px;
+}
+.section-head{
+    height: 100%;
 }
 
 /* Grid centrado y con tarjetas más grandes (similar a Featured) */
@@ -110,7 +127,7 @@ a { color: inherit; text-decoration: none; }
   width: 240px;                   /* más grande */
   height: 240px;
   border-radius: 50%;
-  object-fit: contain;            /* respeta PNGs con transparencia */
+  object-fit: cover;            /* respeta PNGs con transparencia */
   border: 6px solid var(--panel-2);
   margin: 0 auto;                 /* asegura centrado */
   background: #0f1317;            /* base para PNGs transparentes */

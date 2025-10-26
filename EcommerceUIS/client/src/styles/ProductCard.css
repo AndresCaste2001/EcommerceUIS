@@ -147,7 +147,7 @@
 
 /* Small screens adjustments */
 @media (max-width: 576px){
-  .product-card .card-img-top { height: 120px; }
+  .product-card .card-img-top { height: 350px; }
   .product-card .card-body { padding: .5rem .6rem; }
   .product-card .card-actions { padding: .5rem .6rem; }
 }

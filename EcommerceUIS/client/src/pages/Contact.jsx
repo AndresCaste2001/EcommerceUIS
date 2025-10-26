@@ -6,10 +6,9 @@ import "../styles/Contact.css";
 const Contact = () => {
   useEffect(() => {
     // Inicializar el mapa
-    const map = L.map("mapid").setView([-23.013104, -43.394365], 13);
-
+    const map = L.map("mapid").setView([7.1394, -73.1198], 15);
     L.tileLayer(
-      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
+      'https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=hdyOw6t2CIyFAGNjM4qM',
       {
         maxZoom: 18,
         attribution:
@@ -20,9 +19,9 @@ const Contact = () => {
       }
     ).addTo(map);
 
-    L.marker([-23.013104, -43.394365])
+    L.marker([7.1394, -73.1198])
       .addTo(map)
-      .bindPopup("<b>Zay</b> eCommerce Template<br/>Location.")
+      .bindPopup("<b>UIS</b> eCommerce<br/>Location.")
       .openPopup();
 
     map.scrollWheelZoom.disable();

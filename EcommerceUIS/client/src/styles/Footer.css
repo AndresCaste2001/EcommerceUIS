@@ -1,0 +1,17 @@
+.footer {
+    margin-top: auto;
+}
+.footer a{
+    color: #98a0ad;
+}
+footer p{
+    color: #98a0ad;
+}
+.footer a:hover {
+    color: #ffffff !important;
+    transition: color 0.3s ease;
+}
+
+.footer .list-unstyled li {
+    margin-bottom: 0.5rem;
+}

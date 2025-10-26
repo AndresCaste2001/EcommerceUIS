@@ -28,17 +28,17 @@ function Header() {
         </ul>
         <ul className="list-unstyled d-flex gap-3 mb-0">
             <li>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <a href="https://x.com/uis/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                     <i className="fab fa-twitter"></i>
                 </a>
             </li>
             <li>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <a href="https://www.facebook.com/UISColombia/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                     <i className="fab fa-facebook-f"></i>
                 </a>
             </li>
             <li>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a href="https://www.instagram.com/uis/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <i className="fab fa-instagram"></i>
                 </a>
             </li>
@@ -47,7 +47,9 @@ function Header() {
       
       <div className='container-fluid d-flex justify-content-between align-items-center headerLogo'>
         <div className="col-3">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Universidad_Industrial_de_Santander_logo.svg/2560px-Universidad_Industrial_de_Santander_logo.svg.png" alt="Logo UIS" />
+            <a href="https://estudiantes.uis.edu.co/" className="logo-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Universidad_Industrial_de_Santander_logo.svg/2560px-Universidad_Industrial_de_Santander_logo.svg.png" alt="Logo UIS" />
+            </a>
         </div>
 
         <nav className="col-6 d-none d-md-flex justify-content-center">

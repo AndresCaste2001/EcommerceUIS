@@ -1,0 +1,30 @@
+header {
+  max-width: 100%;
+   overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+.brand-img {
+  max-height: 180px;     
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.services-icon-wap {
+  background-color: #495057; /* fondo gris oscuro */
+  color: #28a745; /* icono y texto verde UIS */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.services-icon-wap:hover {
+  background-color: #198754; /* El verde Bootstrap "success" */
+  color: #ffffff;
+}
+
+.services-icon-wap:hover i,
+.services-icon-wap:hover h2 {
+  color: #ffffff !important;
+}

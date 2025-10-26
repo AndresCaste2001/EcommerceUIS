@@ -30,44 +30,154 @@
 .btn:hover{ filter: brightness(1.03); }
 a { color: inherit; text-decoration: none; }
 
-/* ---------- Hero / Carrusel ---------- */
+/* ---------- HERO / Carrusel (alto) ---------- */
 .hero { position: relative; }
 .hero-inner { position: relative; overflow: hidden; border-radius: var(--radius-lg); background: linear-gradient(180deg, #16211b, #0f1317); }
-.hero-slide { display:grid; grid-template-columns: 1.2fr 1fr; gap: 20px; align-items:center; min-height: 420px; padding: 28px; opacity:0; transform: translateY(12px); transition: all .5s ease; position:absolute; inset:0; }
+.hero-slide{
+  display:grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items:center;
+  min-height: clamp(640px, 72vh, 880px);
+  padding: 42px;
+  opacity:0; transform: translateY(12px); transition: all .5s ease; position:absolute; inset:0;
+}
 .hero-slide.is-active{ position: relative; opacity:1; transform:none; }
-.hero-media img{ width:100%; height: 330px; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
-.hero-copy .hero-title{ font-size: clamp(28px,3.2vw,44px); margin:0 0 6px; }
-.hero-copy .hero-sub{ font-weight:600; margin:0 0 6px; color:#b8f3d1; }
-.hero-nav{ position:absolute; top:50%; transform: translateY(-50%); background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.15); width:42px; height:42px; border-radius:50%; display:grid; place-items:center; cursor:pointer; }
+.hero-media img{ height: clamp(420px, 58vh, 620px); width:100%; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
+.hero-copy .hero-title{ font-size: clamp(30px,3.6vw,52px); margin:0 0 10px; }
+.hero-copy .hero-sub{ font-weight:600; margin:0 0 8px; color:#b8f3d1; }
+.hero-nav{
+  position:absolute; top:50%; transform: translateY(-50%);
+  background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.15);
+  width:48px; height:48px; border-radius:50%; display:grid; place-items:center; cursor:pointer;
+}
 .hero-nav:hover{ background:rgba(255,255,255,.15); }
-.hero-nav.prev{ left:12px; } .hero-nav.next{ right:12px; }
-.hero-dots{ position:absolute; left:0; right:0; bottom:10px; display:flex; gap:10px; justify-content:center; }
-.hero-dots .dot{ width:9px; height:9px; border-radius:50%; background:#3b4653; border:0; }
+.hero-nav.prev{ left:14px; } .hero-nav.next{ right:14px; }
+.hero-dots{ position:absolute; left:0; right:0; bottom:14px; display:flex; gap:10px; justify-content:center; }
+.hero-dots .dot{ width:10px; height:10px; border-radius:50%; background:#3b4653; border:0; }
 .hero-dots .dot.is-active{ background: var(--accent); }
-
 @media (max-width: 900px){
-  .hero-slide{ grid-template-columns: 1fr; min-height: 520px; }
-  .hero-media img{ height: 250px; }
+  .hero-slide{ grid-template-columns: 1fr; min-height: clamp(520px, 70vh, 760px); padding: 28px; }
+  .hero-media img{ height: clamp(300px, 44vh, 460px); }
 }
 
-/* ---------- Categorías ---------- */
-.categories .grid-3{ display:grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-.category-card{ text-align:center; background: var(--panel); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
-.category-card .circle{ width: 180px; height:180px; border-radius:50%; object-fit:cover; border: 6px solid var(--panel-2); }
-.category-card h5{ margin: 16px 0 10px; font-size: 1.05rem; }
+/* ---------- CATEGORÍAS (centradas y más grandes) ---------- */
+/* H2 con “píldora” */
+.section-head.pill h2{
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #0c130f;
+  border-radius: 10px;
+  margin: 0 auto 8px;
+}
+
+/* Grid centrado y con tarjetas más grandes (similar a Featured) */
+.categories-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 360px)); /* más ancho */
+  gap: 26px;
+  max-width: 1160px;
+  margin: 0 auto;                 /* centra el bloque */
+  justify-content: center;        /* centra columnas */
+  justify-items: center;          /* centra contenido en celdas */
+}
+
+/* Tarjeta de categoría más grande y alineada */
+.category-card{
+  width: 100%;
+  max-width: 360px;               /* similar al ancho de las cards de Featured */
+  min-height: 420px;              /* altura mayor para equilibrio visual */
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;            /* centra todo horizontalmente */
+  text-align: center;
+  gap: 14px;
+}
+
+/* Enlace contenedor de la imagen: centra estrictamente */
+.category-figure{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Imagen circular grande y centrada */
+.category-card .circle{
+  display: block;
+  width: 240px;                   /* más grande */
+  height: 240px;
+  border-radius: 50%;
+  object-fit: contain;            /* respeta PNGs con transparencia */
+  border: 6px solid var(--panel-2);
+  margin: 0 auto;                 /* asegura centrado */
+  background: #0f1317;            /* base para PNGs transparentes */
+}
+
+.category-title{ margin: 4px 0 2px; font-size: 1.1rem; font-weight: 700; }
 .category-card .btn{ margin-top: 6px; }
 
 @media (max-width: 900px){
-  .categories .grid-3{ grid-template-columns: 1fr; }
-  .category-card .circle{ width: 220px; height:220px; }
+  .categories-grid{ grid-template-columns: 1fr; }
+  .category-card{ max-width: 420px; }
+  .category-card .circle{ width: 260px; height: 260px; }
 }
 
-/* ---------- Featured ---------- */
-.featured{ background: #12171c; padding: 36px 0; border-radius: var(--radius-lg); }
-.grid-3{ display:grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
-.card{ background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden; display:flex; flex-direction:column; }
-.card-img{ width:100%; height: 210px; object-fit: cover; display:block; }
-.card-body{ padding: 16px; display:flex; flex-direction:column; gap:10px; }
+
+
+
+/* ---------- FEATURED (imagen con recorte "cover" y esquinas redondeadas) ---------- */
+.featured{
+  background: #12171c;
+  padding: 40px 0 54px;
+  border-radius: var(--radius-lg);
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+
+/* La tarjeta mantiene proporción del panel inferior */
+.card{
+  background: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;          /* recorta con la misma curvatura */
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(520px, 56vh, 680px);
+}
+
+/* --- MEDIA WRAPPER: el <a> hace de contenedor con relación de aspecto --- */
+.card > a{
+  display: block;
+  overflow: hidden;                          /* importante para el recorte curvo */
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  aspect-ratio: 16 / 9;                      /* altura relativa al ancho (desktop) */
+  background: #0f1317;                       /* base para PNGs con transparencia */
+}
+
+/* La imagen llena TODO el wrapper y se recorta ("cover") */
+.card-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                          /* <-- recorta y “cubre” */
+  display: block;
+}
+
+/* Cuerpo de la tarjeta */
+.card-body{
+  padding: 16px;
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+  flex: 1 1 auto;
+}
 .card-top{ display:flex; align-items:center; justify-content:space-between; }
 .card-title{ font-weight:700; margin-top: 4px; display:inline-block; }
 .card-actions{ display:flex; gap:10px; margin-top:auto; }
@@ -76,6 +186,9 @@ a { color: inherit; text-decoration: none; }
 .star{ fill:#495a69; }
 .star.on{ fill:#f6c84c; }
 
+/* Responsive: un poco más alto en móvil para que luzca mejor */
 @media (max-width: 900px){
   .grid-3{ grid-template-columns: 1fr; }
+  .card{ min-height: clamp(480px, 62vh, 640px); }
+  .card > a{ aspect-ratio: 4 / 3; }         /* más vertical en móviles */
 }

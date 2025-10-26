@@ -6,24 +6,21 @@ const DEFAULT_SLIDES = [
     id: 1,
     title: <>UIS <span className="accent">E-Commerce</span></>,
     subtitle: "Compra oficial universitaria",
-    text:
-      "Merch institucional, papelería y accesorios con envío local.",
-    img: "/src/assets/hoodie1.jpg", // reemplázalo por tu imagen local
+    text: "Merch institucional, papelería y accesorios con envío local.",
+    img: "/src/assets/hoodie1.jpg",
   },
   {
     id: 2,
     title: "Ropa y accesorios",
     subtitle: "Diseños actuales",
-    text:
-      "Prendas cómodas y resistentes para el día a día universitario.",
+    text: "Prendas cómodas y resistentes para el día a día universitario.",
     img: "/src/assets/cap1.jpg",
   },
   {
     id: 3,
     title: "Papelería UIS",
     subtitle: "Todo para tus clases",
-    text:
-      "Cuadernos, planners y kits con identidad UIS.",
+    text: "Cuadernos, planners y kits con identidad UIS.",
     img: "/src/assets/cartuchera_morral.jpg",
   },
 ];

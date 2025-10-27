@@ -2,21 +2,43 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext(null);
 
+const VALID_CREDENTIALS = {
+    username: 'admin',
+    password: '1234'
+};
+
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     try {
       const raw = localStorage.getItem('auth');
-      if (raw) setUser(JSON.parse(raw).user);
+      if (raw) {
+        const data = JSON.parse(raw);
+        setUser(data.user);
+      }
     } catch { /* ignore */ }
   }, []);
 
   async function login({ username, password }) {
-    // mock async login - accept any non-empty username
-    if (!username) throw new Error('Username required');
-    const fakeToken = 'fake-token-' + Date.now();
-    const payload = { user: { username }, token: fakeToken };
+    // Validate credentials
+    if (!username || !password) {
+      throw new Error('Usuario y contraseña son requeridos');
+    }
+
+    // Check against hardcoded credentials
+    if (username !== VALID_CREDENTIALS.username || password !== VALID_CREDENTIALS.password) {
+      throw new Error('Usuario o contraseña incorrectos');
+    }
+
+    // Simulate async operation
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    const payload = { 
+      user: { username }
+    };
+    
     localStorage.setItem('auth', JSON.stringify(payload));
     setUser(payload.user);
     return payload;

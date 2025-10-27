@@ -2,6 +2,11 @@
 
 Aplicación full‑stack (monorepo) con un cliente React + Vite y un servidor Express. Este documento explica la estructura del proyecto, requisitos, instalación y cómo iniciarlo en desarrollo.
 
+## Usuario
+admin
+## Contraseña
+1234
+
 ## Tabla de contenido
 - Descripción general
 - Estructura del proyecto

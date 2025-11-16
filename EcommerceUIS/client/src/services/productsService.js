@@ -1,5 +1,5 @@
 export async function fetchProducts() {
-  const url = 'https://68f5c2e66b852b1d6f14fc3a.mockapi.io/productos/articulos';
+  const url = 'http://localhost:3000/productos';
   const res = await fetch(url);
   if (!res.ok) {
     const text = await res.text().catch(() => '');

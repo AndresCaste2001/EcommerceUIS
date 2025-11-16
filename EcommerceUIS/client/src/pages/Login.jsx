@@ -28,12 +28,26 @@ export default function Login() {
         }
     }
 
+    function handleBackToHome() {
+        navigate('/');
+    }
+
     return (
         <div className="login-backdrop">
             <div className="container py-5">
                 <div className="row justify-content-center">
                     <div className="col-12 col-sm-8 col-md-5">
                         <div className="card p-4 login-card">
+                            <button 
+                                type="button"
+                                className="login-close-btn"
+                                onClick={handleBackToHome}
+                                aria-label="Volver al inicio"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                                </svg>
+                            </button>
                             <div className="login-image col-12 d-flex justify-content-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Universidad_Industrial_de_Santander_logo.svg/2560px-Universidad_Industrial_de_Santander_logo.svg.png" alt="Logo UIS" />
                             </div>

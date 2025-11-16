@@ -37,6 +37,11 @@
   border-bottom: 1px solid rgba(255,255,255,0.01);
 }
 
+/* Section titles */
+.sidebar-card .section-title {
+  margin: 0 0 .6rem 0;
+}
+
 /* Search input */
 .sidebar-search {
   width: 100%;
@@ -87,6 +92,12 @@
   color:#fff;
   border-color: rgba(255,255,255,0.03);
 }
+/* Selected category state */
+.sidebar-categories a.category-link.selected{
+  background: rgba(34, 133, 52, 0.2);
+  border-color: rgba(34, 133, 52, 0.4);
+  color: #fff;
+}
 .category-count {
   font-size:.85rem;
   color:var(--muted);
@@ -110,8 +121,17 @@
   margin-top:.45rem;
 }
 
-
-
+/* Sorting select */
+.sidebar-select{
+  width: 100%;
+  padding: .45rem .6rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: #e6eef8;
+  cursor: pointer;
+  outline: none;
+}
 /* Buttons area */
 .sidebar-actions {
   display:flex;

@@ -75,6 +75,7 @@ PORT=3000
 
 Notas:
 - La base de datos esperada es MySQL/MariaDB. Asegúrate de que exista la base `ecommerce_uis` y que el usuario tenga permisos.
+- Si usas XAMPP, crea la base en phpMyAdmin con el nombre exacto `ecommerce_uis` (o ajusta `DB_NAME` para que coincida exactamente con el nombre de tu base).
 - Si algún puerto está en uso, ajusta `PORT` o `DB_PORT` según corresponda.
 
 Cliente (Vite):

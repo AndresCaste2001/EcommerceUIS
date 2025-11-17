@@ -54,19 +54,33 @@ También puedes instalarlas por separado si lo prefieres:
 
 ## Variables de entorno
 Servidor (Express):
-- Archivo: EcommerceUIS/server/.env (opcional)
-- Variables soportadas:
-  - PORT: Puerto de escucha del servidor. Por defecto 5000.
+- Archivo requerido: EcommerceUIS/server/.env
+- Variables obligatorias para la inicialización correcta del proyecto:
+  - DB_HOST
+  - DB_PORT
+  - DB_USER
+  - DB_PASSWORD
+  - DB_NAME
+  - JWT_SECRET
+  - PORT
 
-Ejemplo de .env:
-- PORT=5000
+Ejemplo de .env (copia y pega en EcommerceUIS/server/.env):
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=un_usr
+DB_PASSWORD=una_clave
+DB_NAME=ecommerce_uis
+JWT_SECRET=UnaClaveMuySegura
+PORT=3000
+
+Notas:
+- La base de datos esperada es MySQL/MariaDB. Asegúrate de que exista la base `ecommerce_uis` y que el usuario tenga permisos.
+- Si algún puerto está en uso, ajusta `PORT` o `DB_PORT` según corresponda.
 
 Cliente (Vite):
 - Si necesitas configurar una URL de API, puedes definir variables que comiencen con VITE_. Ejemplo:
-  - VITE_API_BASE_URL=http://localhost:5000
+  - VITE_API_BASE_URL=http://localhost:3000
 - Archivo: EcommerceUIS/client/.env (opcional)
-
-Nota: En el código actual no se requiere ninguna variable obligatoria para arrancar en desarrollo.
 
 ## Cómo iniciar (desarrollo)
 Opción A — Todo junto (cliente + servidor en paralelo):

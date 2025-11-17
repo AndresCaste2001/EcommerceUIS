@@ -95,3 +95,30 @@ label{
 h4{
     color: #ffffff;
 }
+
+/* Auth form footer - Links to switch between login/register */
+.auth-form-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.auth-form-footer small {
+  color: #9d9d9d;
+  font-size: 0.95rem;
+}
+
+.auth-form-footer a {
+  color: #228534;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.auth-form-footer a:hover {
+  color: #247624;
+  text-decoration: underline;
+}
+
+.auth-form-footer a:active {
+  color: #1a5a1f;
+}

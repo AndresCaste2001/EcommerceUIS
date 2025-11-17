@@ -27,7 +27,7 @@ EcommerceUIS/                  # Monorepo principal (donde están los scripts)
 │   └── src/
 └── server/                    # Backend (Express)
     ├── package.json
-    └── src/index.js
+    └── src/server.js
 
 README.md                      # Este archivo (en la raíz del repo Git)
 ```

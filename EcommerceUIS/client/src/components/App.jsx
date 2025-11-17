@@ -4,8 +4,10 @@ import Home from '../pages/Home.jsx'
 import About from '../pages/About.jsx'
 import Shop from '../pages/Shop.jsx'
 import Contact from '../pages/Contact.jsx'
-import Login from '../pages/Login.jsx'                 // added
-import ProtectedRoute from './ProtectedRoute.jsx'     // added
+import Login from '../pages/Login.jsx'
+import Register from '../pages/Register.jsx'
+import Cart from '../pages/Cart.jsx'
+import ProtectedRoute from './ProtectedRoute.jsx'
 
 export default function App() {
   return (
@@ -41,8 +43,10 @@ export default function App() {
           }
         />
 
-        {/* public login route */}
+        {/* public routes */}
         <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="cart" element={<Cart />} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>

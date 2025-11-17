@@ -3,11 +3,13 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Header.css';
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext.jsx';
 
 function Header() {
   const { count } = useCart();
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <header>
@@ -71,10 +73,15 @@ function Header() {
             </div>
 
             <div className="nav-icons d-none d-md-flex gap-3">
-              <a href="#" className="icon-link position-relative" aria-label="Carrito de compras">
+              <button 
+                onClick={() => navigate('/cart')}
+                className="icon-link position-relative" 
+                style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+                aria-label="Carrito de compras"
+              >
                 <i className="fas fa-shopping-cart"></i>
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">{count}</span>
-              </a>
+              </button>
               <a href="#" className="icon-link position-relative" aria-label="Perfil de usuario">
                 <i className="fas fa-user"></i>
               </a>

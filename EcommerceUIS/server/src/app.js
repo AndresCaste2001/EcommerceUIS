@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import productRoutes from "./routes/products.js";
 import authRoutes from "./routes/auth.js";
+import orderRoutes from "./routes/orders.js";
 
 const app = express();
 
@@ -16,5 +17,8 @@ app.use("/auth", authRoutes);
 
 // Product routes
 app.use("/productos", productRoutes);
+
+// Order routes (protected)
+app.use("/pedidos", orderRoutes);
 
 export default app;

@@ -126,6 +126,15 @@ En EcommerceUIS/server/package.json:
 - npm run dev          → Server con nodemon
 - npm start            → Server con node
 
+## Imágenes estáticas de Bucaramanga
+El servidor Express sirve 3 imágenes estáticas de Bucaramanga, Colombia. Una vez que el servidor esté en ejecución, puedes acceder a las imágenes en las siguientes URLs:
+
+- http://localhost:3000/images/bucaramanga1.jpeg
+- http://localhost:3000/images/bucaramanga2.jpeg
+- http://localhost:3000/images/bucaramanga3.jpeg
+
+Estas imágenes se sirven desde la carpeta `EcommerceUIS/server/public/images/`.
+
 ## Solución de problemas
 - Error "command not found: concurrently": Asegúrate de ejecutar los scripts desde EcommerceUIS/ (donde está package.json con la dependencia de desarrollo concurrently). Si persiste, ejecuta npm install en EcommerceUIS/.
 - Puerto en uso (EADDRINUSE): Cambia PORT en EcommerceUIS/server/.env o cierra el proceso que ocupa ese puerto.

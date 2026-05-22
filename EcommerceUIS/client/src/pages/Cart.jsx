@@ -5,6 +5,7 @@ import { useAuth } from '../contexts/AuthContext.jsx';
 import '../styles/Cart.css';
 
 export default function Cart() {
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
     const { cart, removeFromCart, updateQuantity, clearCart, getTotal } = useCart();
     const { isAuthenticated } = useAuth();
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ export default function Cart() {
                 cantidad: item.cantidad
             }));
 
-            const response = await fetch('http://localhost:3000/pedidos', {
+            const response = await fetch(`${API_URL}/pedidos`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

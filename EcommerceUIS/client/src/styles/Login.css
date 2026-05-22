@@ -15,7 +15,35 @@
 .login-card {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
+.login-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: #98a0ad;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
 
+.login-close-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+.login-close-btn:active {
+    transform: scale(0.95);
+}
+
+.login-card {
+    position: relative;
+}
 .login-image img {
   max-width: 200px;
   height: auto;
@@ -66,4 +94,31 @@ label{
 }
 h4{
     color: #ffffff;
+}
+
+/* Auth form footer - Links to switch between login/register */
+.auth-form-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.auth-form-footer small {
+  color: #9d9d9d;
+  font-size: 0.95rem;
+}
+
+.auth-form-footer a {
+  color: #228534;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.auth-form-footer a:hover {
+  color: #247624;
+  text-decoration: underline;
+}
+
+.auth-form-footer a:active {
+  color: #1a5a1f;
 }
